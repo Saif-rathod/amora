@@ -1,0 +1,42 @@
+model LovedOne {
+  id          String      @id @default(cuid())
+  userId      String      // For authentication
+  name        String
+  relationship String
+  birthday    DateTime
+  notes       String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  occasions   Occasion[]
+  contactInfo ContactInfo?
+  notifications NotificationPreference?
+}
+
+model Occasion {
+  id          String    @id @default(cuid())
+  type        String
+  date        DateTime
+  description String?
+  isRecurring Boolean   @default(true)
+  lovedOne    LovedOne  @relation(fields: [lovedOneId], references: [id], onDelete: Cascade)
+  lovedOneId  String
+}
+
+model ContactInfo {
+  id          String    @id @default(cuid())
+  phone       String?
+  email       String?
+  address     String?
+  lovedOne    LovedOne  @relation(fields: [lovedOneId], references: [id], onDelete: Cascade)
+  lovedOneId  String    @unique
+}
+
+model NotificationPreference {
+  id          String    @id @default(cuid())
+  whatsapp    Boolean   @default(false)
+  sms         Boolean   @default(false)
+  email       Boolean   @default(false)
+  reminderDays Int      @default(7)
+  lovedOne    LovedOne  @relation(fields: [lovedOneId], references: [id], onDelete: Cascade)
+  lovedOneId  String    @unique
+} 
