@@ -225,7 +225,7 @@ export default function Navbar() {
     setMounted(true);
     
     if (typeof window !== 'undefined') {
-      const handleScroll = () => {
+    const handleScroll = () => {
         setIsScrolled(window.scrollY > 0);
       };
       window.addEventListener('scroll', handleScroll);
@@ -388,8 +388,8 @@ export default function Navbar() {
                       <Button
                         variant="ghost"
                         className="w-full justify-start"
-                      >
-                        <div className={cn(
+          >
+            <div className={cn(
                           "flex h-10 w-10 items-center justify-center rounded-lg mr-4",
                           category.color
                         )}>
@@ -428,19 +428,19 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-          </div>
+              </div>
 
           {/* Actions */}
           <div className="flex items-center gap-1">
             {/* Search */}
             <Popover>
               <PopoverTrigger asChild>
-                <Button
-                  variant="ghost"
+                        <Button
+                          variant="ghost"
                   className="h-10 w-10 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
                 >
                   <Search className="h-4 w-4" />
-                </Button>
+                        </Button>
               </PopoverTrigger>
               <PopoverContent className="w-[450px] p-0" align="end" sideOffset={8}>
                 <div className="flex items-center border-b p-2">
@@ -454,8 +454,8 @@ export default function Navbar() {
                     autoFocus
                   />
                   {searchQuery && (
-                    <Button
-                      variant="ghost"
+                        <Button
+                          variant="ghost"
                       size="icon"
                       className="h-8 w-8"
                       onClick={() => {
@@ -464,11 +464,11 @@ export default function Navbar() {
                         setSelectedRecipient(null);
                       }}
                     >
-                      <X className="h-4 w-4" />
+                                <X className="h-4 w-4" />
                       <span className="sr-only">Clear search</span>
-                    </Button>
+                              </Button>
                   )}
-                </div>
+                            </div>
 
                 <div className="max-h-[600px] overflow-y-auto divide-y">
                   {/* Search Results */}
@@ -478,7 +478,7 @@ export default function Navbar() {
                       {filteredCategories.length === 0 ? (
                         <div className="p-4 text-center text-sm text-muted-foreground">
                           No results found.
-                        </div>
+                          </div>
                       ) : (
                         <div className="grid gap-1">
                           {filteredCategories.map((category) => (
@@ -497,7 +497,7 @@ export default function Navbar() {
                           ))}
                         </div>
                       )}
-                    </div>
+                  </div>
                   )}
 
                   {/* Quick Access by Occasion */}
@@ -506,7 +506,7 @@ export default function Navbar() {
                       <h4 className="mb-2 px-2 text-sm font-medium">BROWSE BY OCCASION</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {occasions.map((occasion, index) => (
-                          <Button
+                <Button
                             key={index}
                             variant="outline"
                             className="justify-start text-sm"
@@ -542,18 +542,18 @@ export default function Navbar() {
               {/* User Profile */}
               {user ? (
                 <>
-                  <Button
-                    variant="ghost"
+          <Button
+            variant="ghost"
                     className="h-10 w-10 rounded-xl hidden md:flex hover:bg-gray-50 active:bg-gray-100 transition-colors ml-1"
                     onClick={() => router.push("/dashboard")}
                   >
                     <Home className="h-4 w-4" />
-                  </Button>
-                  
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
+            </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
                         className="h-10 w-10 rounded-xl p-0.5 hover:bg-gray-50 active:bg-gray-100 transition-colors ml-1"
                       >
                         <Avatar className="h-9 w-9 ring-2 ring-gray-100">
@@ -569,8 +569,8 @@ export default function Navbar() {
                             </AvatarFallback>
                           )}
                         </Avatar>
-                      </Button>
-                    </DropdownMenuTrigger>
+                </Button>
+              </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56 mt-2" align="end">
                       <div className="flex items-center justify-start gap-3 p-3 bg-gray-50/50">
                         <Avatar className="h-10 w-10 ring-2 ring-white">
@@ -591,7 +591,7 @@ export default function Navbar() {
                           <p className="text-xs text-muted-foreground truncate">
                             {user.email}
                           </p>
-                        </div>
+                      </div>
                       </div>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem
@@ -603,30 +603,30 @@ export default function Navbar() {
                       >
                         <User className="mr-2 h-4 w-4" />
                         Profile
-                      </DropdownMenuItem>
+                </DropdownMenuItem>
                       <DropdownMenuItem
                         className="cursor-pointer text-sm py-2.5"
                         onClick={() => router.push("/settings")}
                       >
                         <Settings className="mr-2 h-4 w-4" />
                         Settings
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
                       <DropdownMenuItem
                         className="cursor-pointer text-sm text-rose-600 focus:text-rose-700 py-2.5"
                         onClick={handleLogout}
                       >
                         <LogOut className="mr-2 h-4 w-4" />
                         Log out
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
                 </>
               ) : (
                 <div className="flex items-center gap-2 ml-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
+                <Button
+                  variant="ghost"
+                  size="sm"
                     className="font-medium hover:bg-gray-50 active:bg-gray-100"
                     onClick={() => router.push("/auth/login")}
                   >
@@ -638,7 +638,7 @@ export default function Navbar() {
                     onClick={() => router.push("/auth/signup")}
                   >
                     Sign Up
-                  </Button>
+                </Button>
                 </div>
               )}
             </div>
@@ -646,13 +646,13 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button 
+            <Button
                   variant="ghost"
                   className="h-10 w-10 rounded-xl lg:hidden hover:bg-gray-50 active:bg-gray-100 transition-colors ml-1"
                   aria-label="Menu"
                 >
                   <Menu className="h-4 w-4" />
-                </Button>
+            </Button>
               </SheetTrigger>
               <SheetContent side="right" className="p-0 w-full sm:w-96">
                 <SheetHeader className="p-6 text-left border-b">
@@ -661,7 +661,7 @@ export default function Navbar() {
                 <ScrollArea className="h-[calc(100vh-5rem)]">
                   <div className="grid gap-2 p-5">
                     {categories.map((category) => (
-                      <Link
+                <Link
                         key={category.label}
                         href={category.href}
                         className="group"
@@ -677,10 +677,10 @@ export default function Navbar() {
                           <category.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                           {category.label}
                         </Button>
-                      </Link>
-                    ))}
-                  </div>
-                </ScrollArea>
+                </Link>
+              ))}
+            </div>
+          </ScrollArea>
               </SheetContent>
             </Sheet>
           </div>
