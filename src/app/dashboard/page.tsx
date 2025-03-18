@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { User, Settings, Calendar, Bell, ArrowRight, Package, Gift, Heart, Clock, TrendingUp, ShoppingBag, CreditCard } from "lucide-react";
+import { Package, Gift, Heart, Clock, TrendingUp, Calendar, ShoppingBag, CreditCard, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 export default function DashboardPage() {

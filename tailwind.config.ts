@@ -77,6 +77,9 @@ export default {
         '3xl': '1.5rem',
         '4xl': '2rem',
       },
+      fontFamily: {
+        sans: ['var(--font-urbanist)'],
+      },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
         '3xl': ['1.875rem', { lineHeight: '2.25rem' }],

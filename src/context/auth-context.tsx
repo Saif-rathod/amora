@@ -3,6 +3,11 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+interface LoginData {
+  email: string;
+  password: string;
+}
+
 interface User {
   id: string;
   name: string;
@@ -19,7 +24,7 @@ interface User {
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (data: any) => Promise<void>;
+  login: (data: LoginData) => Promise<void>;
   signup: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   updateProfile: (data: Partial<User>) => Promise<void>;
@@ -86,7 +91,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const login = async (data: any) => {
+  const login = async (data: LoginData) => {
     try {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
       const user = users.find((u: any) => u.email === data.email && u.password === data.password);
